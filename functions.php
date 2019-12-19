@@ -3,7 +3,7 @@
 $base_dir = get_stylesheet_directory();
 // Enqueue dist/css and dist/js
 //   do not change this without also changing gulpfile.js and webpack.config.js to match
-// require_once($base_dir . 'inc/functions/enqueue_scripts.php');
+require_once($base_dir . '/inc/functions/enqueue_scripts.php');
 // Remove emojis
 require_once($base_dir . '/inc/functions/disable_emojis.php');
 // Remove jquery by default

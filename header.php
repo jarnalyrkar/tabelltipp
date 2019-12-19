@@ -8,4 +8,6 @@ $context['nav'] = wp_nav_menu(array(
   )
 );
 
+$context['logout_link'] = site_url() . '/wp-login.php?action=logout';
+$context['logo'] = get_stylesheet_directory_uri() . '/assets/img/logo.jpg';
 Timber::render('header.twig', $context);

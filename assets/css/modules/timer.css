@@ -1,0 +1,5 @@
+.completed {
+  &__num {
+    color: #bb1100;
+  }
+}

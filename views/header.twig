@@ -9,13 +9,28 @@
 </head>
 <body>
 
-  <div class="container">
-    <div class="row d-flex">
-      <div class="col">
-        Hjalmarlosjens Tabelltipp
-      </div>
-      <nav class="col">
-        {{ nav }}
-      </nav>
-    </div>
-  </div>
+<div class="topFlex">
+
+  <section class="timer">
+    <p class="timer__text" id="timer">Tid igjen: 3 dager, 14 timer og 4 minutter</p>
+  </section>
+
+  <section class="logo">
+    <img src="{{logo}}" width="200">
+  </section>
+
+  <section class="completed">
+    <h2>Leverte kuponger: <span class="completed__num">3</span></h2>
+    <ul>
+      <li>Sten</li>
+      <li>Geir</li>
+      <li>Anders</li>
+    </ul>
+  </section>
+</div>
+
+<section class="logout">
+  <ul>
+    <li><a href="{{ logout_link }}">Logg ut</a></li>
+  </ul>
+</section>

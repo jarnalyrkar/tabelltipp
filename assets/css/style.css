@@ -18,4 +18,8 @@
 @import "base/responsive-embed.css";
 
 /* BEM-blocks */
-@import "modules/main-navigation.css"
+@import "modules/logout.css";
+@import "modules/timer.css";
+@import "modules/completed.css";
+@import "modules/header.css";
+@import "modules/list.css";

@@ -1,0 +1,23 @@
+.teams {
+  display: inline-block;
+  padding-left: 0;
+  text-align: center;
+}
+
+.teams li:hover {
+  cursor: grab;
+}
+
+.teamContainer {
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+  & ul {
+    list-style: none;
+    padding: 1em 2em;
+  }
+  & li {
+    border-bottom: 1px solid #bbb;
+  }
+
+}
