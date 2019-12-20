@@ -1,4 +1,21 @@
-.topFlex {
-  display: flex;
-  justify-content: space-around;
+.topRow {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  padding-left: 1em;
+  padding-right: 1em;
 }
+
+.timer {
+  grid-column-start: 1;
+}
+
+.logo {
+  text-align: center;
+}
+
+.completed {
+  grid-column-start: -2;
+  text-align: right;
+
+}
+

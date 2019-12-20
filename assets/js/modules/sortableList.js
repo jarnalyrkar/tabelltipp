@@ -1,4 +1,4 @@
 import Sortable from 'sortablejs';
 
-var el = document.getElementById('items');
+var el = document.getElementById('teams');
 var sortable = Sortable.create(el);

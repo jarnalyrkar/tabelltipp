@@ -1,0 +1,14 @@
+.bannerMessage {
+  width: 100%;
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  text-align: center;
+  height: 50px;
+  background-color: rgba(17, 34, 51, 0.8);
+  color: white;
+  transition: opacity 300ms ease-in;
+  padding-top: 10px;
+  padding-bottom: 15px;
+}

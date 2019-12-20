@@ -9,29 +9,31 @@
 </head>
 <body>
 
-<div class="topFlex">
+  <div class="topRow">
+    <section class="timer">
+      <p class="timer__text" id="timer">Tid igjen: {{ time_left }}</p>
+      <p id="futureDate" style="display: none;">{{ future }}</p>
+    </section>
 
-  <section class="timer">
-    <p class="timer__text" id="timer">Tid igjen: {{ time_left }}</p>
-    <p id="futureDate" style="display: none;">{{ future }}</p>
-  </section>
+      <section class="logo">
+        <img src="{{logo}}" width="200">
+      </section>
 
-  <section class="logo">
-    <img src="{{logo}}" width="200">
-  </section>
+    <section class="completed">
+      <h2>Leverte kuponger: <span class="completed__num">3</span></h2>
+      <ul>
+        <li>Sten</li>
+        <li>Geir</li>
+        <li>Anders</li>
+      </ul>
+    </section>
+  </div>
 
-  <section class="completed">
-    <h2>Leverte kuponger: <span class="completed__num">3</span></h2>
+
+
+
+  <section class="logout">
     <ul>
-      <li>Sten</li>
-      <li>Geir</li>
-      <li>Anders</li>
+      <li><a href="{{ logout_link }}">Logg ut</a></li>
     </ul>
   </section>
-</div>
-
-<section class="logout">
-  <ul>
-    <li><a href="{{ logout_link }}">Logg ut</a></li>
-  </ul>
-</section>

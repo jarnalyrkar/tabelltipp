@@ -1,0 +1,10 @@
+.saveButton {
+  display: flex;
+  justify-content: center;
+}
+
+.saveButton a {
+  color: white;
+  padding: 0.5em 1em;
+  background-color: black;
+}

@@ -20,3 +20,11 @@ function create_main_menu() {
 
 /* Custom Gutenberg blocks */
 require_once trailingslashit(get_stylesheet_directory()) . 'inc/acf-blocks.php';
+
+// Hide wp-admin bar for non-admins:
+function hide_admin_bar_if($show) {
+  if (!current_user_can('administrator')) {
+    $show = false;
+  }
+  return $show;
+} add_filter('show_admin_bar', 'hide_admin_bar_if');

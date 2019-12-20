@@ -1,39 +1,27 @@
+<div class="bannerMessage" id="message"></div>
 <div class="teamContainer">
   <ul>
-    <li>1. </li>
-    <li>2. </li>
-    <li>3. </li>
-    <li>4. </li>
-    <li>5. </li>
-    <li>6. </li>
-    <li>7. </li>
-    <li>8. </li>
-    <li>9. </li>
-    <li>10. </li>
-    <li>11. </li>
-    <li>12. </li>
-    <li>13. </li>
-    <li>14. </li>
-    <li>15. </li>
-    <li>16. </li>
-  </ul>
-  <ul class="teams" id="items">
-    <li>Odd</li>
-    <li>Aalesund</li>
-    <li>Bodø/Glimt</li>
-    <li>Brann</li>
-    <li>Haugesund</li>
-    <li>Kristiansund</li>
-    <li>Mjøndalen</li>
-    <li>Molde</li>
-    <li>Rosenborg</li>
-    <li>Sarpsborg 08</li>
-    <li>Sandefjord</li>
-    <li>Stabæk</li>
-    <li>Start</li>
-    <li>Strømsgodset</li>
-    <li>Viking</li>
-    <li>Vålerenga</li>
+    {% set num = 1 %}
+    {% for klubb in post.meta('fotballklubber') %}
+      <li>{{ num }}.</li>
+        {% set num = num + 1 %}
+    {% endfor %}
   </ul>
 
+  <ul class="teams" id="teams">
+    {% if has_coupon %}
+      {% for klubb in kupong %}
+        <li>{{ klubb }}</li>
+      {% endfor %}
+    {% else %}
+      {% for klubb in post.meta('fotballklubber') %}
+        <li>{{ klubb.klubbnavn }}</li>
+      {% endfor %}
+    {% endif %}
+  </ul>
+
+</div>
+
+<div class="saveButton">
+  <a id="save" href="#">Lagre tabell</a>
 </div>
