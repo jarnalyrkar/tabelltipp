@@ -12,7 +12,8 @@
 <div class="topFlex">
 
   <section class="timer">
-    <p class="timer__text" id="timer">Tid igjen: 3 dager, 14 timer og 4 minutter</p>
+    <p class="timer__text" id="timer">Tid igjen: {{ time_left }}</p>
+    <p id="futureDate" style="display: none;">{{ future }}</p>
   </section>
 
   <section class="logo">
