@@ -20,11 +20,11 @@
       </section>
 
     <section class="completed">
-      <h2>Leverte kuponger: <span class="completed__num">3</span></h2>
+      <h2>Leverte kuponger: <span class="completed__num">{{ user_count }}</span></h2>
       <ul>
-        <li>Sten</li>
-        <li>Geir</li>
-        <li>Anders</li>
+        {% for name in print_us %}
+          <li>{{ name }}</li>
+        {% endfor %}
       </ul>
     </section>
   </div>

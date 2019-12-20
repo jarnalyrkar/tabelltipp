@@ -28,6 +28,7 @@ let countDown = futureDate.getTime(),
       if (distance < 0) {
       // Skru av mulighet til å redigere yttligere
       document.querySelector('.teamContainer').style.color = "#aaa";
+      document.querySelector('#save').style.display = "none";
       sortable.option("disabled", !state);
       clearInterval(x);
     }
