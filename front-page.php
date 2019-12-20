@@ -2,15 +2,20 @@
 $context = array();
 $context['post'] = new Timber\Post();
 
-if (isset($_POST['tabell'])) {
-  save();
-}
+// Admin doesn't need to be able to deal with this shit
+if (!current_user_can('administrator')) {
 
-$context['coupon'] = false;
+  if (isset($_POST['tabell'])) {
+    save();
+  }
 
-if (get_field('kupong', findPost()->ID)) {
-  $context['has_coupon'] = true;
-  $context['kupong'] = explode(', ', get_field('kupong', findPost()->ID));
+  $context['coupon'] = false;
+
+  if (get_field('kupong', findPost()->ID)) {
+    $context['has_coupon'] = true;
+    $context['kupong'] = explode(', ', get_field('kupong', findPost()->ID));
+  }
+
 }
 
 get_header();
@@ -21,6 +26,7 @@ function save() {
   $kupong = explode(',', $_POST['tabell']);
 
   $thePost = findPost();
+
   // oppdater kupong-felt
   update_field('kupong', implode(', ', $kupong), $thePost->ID);
 
@@ -34,6 +40,7 @@ function save() {
 function findPost() {
   // finn ut hvem som er logget inn
   $author = wp_get_current_user();
+
   // finn posten som tilhører brukeren
   $query = new WP_Query(array(
     'author' => $author->ID,

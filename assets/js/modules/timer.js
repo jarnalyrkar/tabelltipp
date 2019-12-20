@@ -1,5 +1,13 @@
+import Sortable from 'sortablejs';
+
+
 const futureDateText = document.querySelector('#futureDate').innerHTML;
 let futureDate = new Date(futureDateText); // subtract 5 minutes
+
+let el = document.getElementById('teams');
+let sortable = Sortable.create(el);
+let state = sortable.option("disabled");
+
 
 const second = 1000,
   minute = second * 60,
@@ -17,10 +25,11 @@ let countDown = futureDate.getTime(),
       document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
       document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
 
-    //do something later when date is reached
-    //if (distance < 0) {
-    //  clearInterval(x);
-    //  'IT'S MY BIRTHDAY!;
-    //}
+      if (distance < 0) {
+      // Skru av mulighet til å redigere yttligere
+      document.querySelector('.teamContainer').style.color = "#aaa";
+      sortable.option("disabled", !state);
+      clearInterval(x);
+    }
 
   }, second)

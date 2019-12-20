@@ -28,3 +28,12 @@ function hide_admin_bar_if($show) {
   }
   return $show;
 } add_filter('show_admin_bar', 'hide_admin_bar_if');
+
+// Redirect non-admins away from wp-admin
+if (!is_admin()) {
+  function admin_default_page() {
+    return site_url();
+  }
+  add_filter('login_redirect', 'admin_default_page');
+}
+
