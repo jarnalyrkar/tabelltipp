@@ -29,11 +29,36 @@ function hide_admin_bar_if($show) {
   return $show;
 } add_filter('show_admin_bar', 'hide_admin_bar_if');
 
-// Redirect non-admins away from wp-admin
-if (!is_admin()) {
-  function admin_default_page() {
-    return site_url();
+// Handle redirects after login
+function user_login_redirect($redirect_to, $request, $user) {
+  if (!is_wp_error($user)) {
+    if (is_array($user->roles) && in_array('administrator', $user->roles)) {
+      return admin_url();
+    } else {
+      return site_url();
+    }
   }
-  add_filter('login_redirect', 'admin_default_page');
-}
+} add_filter('login_redirect', 'user_login_redirect', 10, 3);
 
+// Redirect if user tries to access WP-admin
+function restrict_admin_with_redirect() {
+  if (!current_user_can('manage_options') && (!wp_doing_ajax())) {
+    wp_safe_redirect(site_url()); // Replace this with the URL to redirect to.
+    exit;
+  }
+} add_action( 'admin_init', 'restrict_admin_with_redirect', 1 );
+
+// Change logo on login-screen:
+function my_login_logo() { ?>
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/img/logo.jpg);
+            height: 250px;
+            width: 100%;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        	padding-bottom: 30px;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'my_login_logo' );

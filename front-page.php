@@ -1,9 +1,9 @@
 <?php
+if (!current_user_can('administrator')) {
 $context = array();
 $context['post'] = new Timber\Post();
 
 // Admin doesn't need to be able to deal with this shit
-if (!current_user_can('administrator')) {
 
   if (isset($_POST['tabell'])) {
     save();
@@ -16,11 +16,11 @@ if (!current_user_can('administrator')) {
     $context['kupong'] = explode(', ', get_field('kupong', findPost()->ID));
   }
 
-}
 
-get_header();
-Timber::render('front-page.twig', $context);
-get_footer();
+  get_header();
+  Timber::render('front-page.twig', $context);
+  get_footer();
+} else Timber::render('admin.twig');
 
 function save() {
   $kupong = explode(',', $_POST['tabell']);
