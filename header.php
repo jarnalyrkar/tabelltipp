@@ -3,6 +3,7 @@
 if (!is_user_logged_in()) {
   wp_safe_redirect(wp_login_url());
 }
+
 if (!current_user_can('administrator')) {
   $context = array();
   $context['post'] = new Timber\Post();
@@ -18,15 +19,8 @@ if (!current_user_can('administrator')) {
   $printUs = array();
 
   foreach ($allUsers as $user) {
-    $post = get_posts(array(
-      'author' => $user->ID,
-      'numberposts' => 1
-    ));
-
-    if($post) {
-      if (get_field('kupong', $post[0]->ID)) {
-        array_push($printUs, ucfirst($user->user_nicename));
-      }
+    if (get_field('kupong', $user->ID) != "") {
+      array_push($printUs, ucfirst($user->user_nicename));
     }
   }
 
