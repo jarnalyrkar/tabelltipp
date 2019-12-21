@@ -52,12 +52,27 @@ function restrict_admin_with_redirect() {
 function my_login_logo() { ?>
     <style type="text/css">
         #login h1 a, .login h1 a {
-            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/img/logo.jpg);
-            height: 250px;
-            width: 100%;
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
+          background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/img/logo.jpg);
+          height: 250px;
+          width: 100%;
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
         	padding-bottom: 30px;
+        }
+        #login {
+          padding-top: 4% !important;
+        }
+        .login {
+          background-color: #fff;
+        }
+
+        #loginform .button {
+          background-color: #123;
+          color: #fff;
+        }
+
+        #login #nav, #login #backtoblog {
+          display: none;
         }
     </style>
 <?php }
