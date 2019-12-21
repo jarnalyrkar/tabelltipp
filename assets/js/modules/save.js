@@ -24,11 +24,15 @@ button.addEventListener('click', (ev) => {
   fetch('.', options)
     .then(res => res.json())
     .then(res => {
-      message.innerHTML = "Din kupong har blitt lagret";
-      message.style.opacity = 1;
-      setTimeout(() => {
-        message.style.opacity = 0;
-      }, 4000)
+      if (res == "200") {
+        message.innerHTML = "Din kupong har blitt lagret";
+      } else {
+        message.innerHTML = "Noe gikk galt - thoughts and prayers time.."
+      }
+        message.style.opacity = 1;
+        setTimeout(() => {
+          message.style.opacity = 0;
+        }, 4000)
   });
 
 });
